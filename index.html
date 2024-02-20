@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #080808;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            /* background-image: url('image1.jpg'); */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-body {
+             background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6em;
+        }
+
+        #countdown {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .responsive-img {
+            max-width: 100%;
+            height:auto;
+            margin-bottom: 5px;
+        }
+    </style>
+    <title>Happy Birthday!</title>
+</head>
+<body>
+
+    <h1 style="color:red">Happy Birthday Rasika</h1>
+
+<div class="container">
+    <!-- Row for left side images and card -->
+    <div class="row justify-content-center">
+        <!-- Left side images column -->
+        <div class="col-md-3">
+            <img src="image1.jpg" alt="Image 1" class="responsive-img">
+            <img src="image2.jpg" alt="Image 2" class="responsive-img">
+            <!-- <img src="image3.jpg" alt="Image 3" class="responsive-img"> -->
+        </div>
+        <!-- Card column -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    
+                    <p class="card-text">Wishing you a day filled with love, joy, and unforgettable moments <img src="emoji-kiss.svg" alt="kiss SVG"></p>
+                    <p class="card-text">May this year bring you success, happiness, and all your heart's desires <img src="heart.svg" alt="heart"></p>
+                    <p class="card-text">Enjoy your special day to the fullest!  <img src="balloon-heart.svg"><img src="cake2.svg"><img src="balloon-heart.svg"></p>
+                    <p class="card-text">Hamesha Smile krte rehna kyu ki us time pe jab tum smile krti vo time tumse beautiful koi nahi dikhta. or kabhi kabhi kabhi jo bhi kuch bhi life mai hota na aisa sochna ke lena ki ye to life ka part hi hai or un baato ko leke kabhi udhas mt hona or hui bhi to sneha hai family hai or last mai me bhi to hu hi to isliye hamesha smile krte rehna.<img src="emoji-laughing.svg"><img src="emoji-laughing.svg"><img src="emoji-laughing.svg"></p>
+                    <p id="countdown"></p>
+                    <button class="btn btn-primary" onclick="playBirthdaySong()">Play Birthday Song</button>
+                    <br><br>
+                    <p>Created with <span style="color: red;">❤</span> by Sonal</p>
+                </div>
+            </div>
+        </div>
+        <!-- Right side images column -->
+        <div class="col-md-3">
+            <img src="image3.jpg" alt="Image 4" class="responsive-img">
+            <img src="image-4.jpg" alt="Image 5" class="responsive-img">
+            
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Countdown timer
+    const birthdayDate = new Date('2024-02-21T00:00:00');
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = birthdayDate - now;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Call the function immediately to show the initial countdown
+    updateCountdown();
+
+    // Set an interval to update the countdown every second
+    setInterval(updateCountdown, 1000);
+
+    function playBirthdaySong() {
+        const audio = document.getElementById('birthdaySong');
+        audio.play();
+        alert("♪♫ Happy Birthday to You! ♪♫");
+    }
+</script>
+
+<audio id="birthdaySong" src="birthdaySong.mp3" preload="auto"></audio>
+
+</body>
+</html>
